@@ -1,9 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
-
 
 function Header() {
   const [ethPrice, setEthPrice] = useState(null);
@@ -51,7 +50,9 @@ function Header() {
             <span>Loading...</span>
           )}
         </div>
-        <div><FontAwesomeIcon icon={faMoon}/></div>
+        <div>
+          <FontAwesomeIcon icon={faMoon} color="orange" />
+        </div>
       </div>
 
       <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-grey border-w">
