@@ -27,7 +27,7 @@ useEffect(() => {
 
 
     <div className="flex justify-between h-[50%] bg-blue-200 p-4 lg:px-8">
-    <div className='flex items-center justify-start gap-1'><img src={'/Lightblock.png'} alt="logo" className='flex w-[3rem] rounded-md'/><h1>Lightblock</h1></div>
+    <div className='flex items-center justify-start gap-1'><img src={'/Lightblock.png'} alt="logo" className='flex w-[3rem] rounded-sm'/><h1 className='h-[full] lg:text-[2rem] text-[1rem]'>Lightblock</h1></div>
     <div>Prices, NFTS</div>
     </div>
   </header>
