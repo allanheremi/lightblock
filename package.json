@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "next": "latest"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "autoprefixer": "latest",
+    "axios": "^1.5.1",
+    "ethers": "^6.7.1",
     "postcss": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "latest",
+    "web3": "^4.1.2"
   }
 }
