@@ -50,7 +50,7 @@ function Header() {
           )}
         </div>
         <div>
-          <FontAwesomeIcon icon={faMoon} color="orange" />
+          <FontAwesomeIcon icon={faMoon} color="orange" className='hover:cursor-pointer'/>
         </div>
       </div>
 
