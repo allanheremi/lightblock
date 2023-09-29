@@ -12,7 +12,7 @@ const settings = {
 };
 
 const providerUrl = process.env.NEXT_PUBLIC_ALCHEMY_HTTP_PROVIDER;
-web3 = new Web3(new Web3.providers.HttpProvider(providerUrl));
+// web3 = new Web3(new Web3.providers.HttpProvider(providerUrl));
 const alchemy = new Alchemy(settings);
 
 function Search() {
