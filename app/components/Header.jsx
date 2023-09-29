@@ -17,7 +17,6 @@ function Header() {
         const price = response.data.market_data.current_price.usd;
         const dailyChange =
           response.data.market_data.price_change_percentage_24h;
-        console.log(response.data);
         setEthPrice(price);
         setPriceChange(dailyChange);
       })

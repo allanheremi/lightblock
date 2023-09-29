@@ -1,9 +1,20 @@
 'use client'
+import { Network, Alchemy } from 'alchemy-sdk';
 import React, { useState } from 'react';
-import 'tailwindcss/tailwind.css';
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const settings = {
+  apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
+  network: Network.ETH_MAINNET,
+};
+
+const alchemy = new Alchemy(settings);
 
 function Search() {
   const [search, setSearch] = useState('')
+
   
   return (
     <div className="bg-search-bg bg-cover bg-center h-[12rem]">

@@ -18,9 +18,12 @@
     "react-dom": "latest"
   },
   "devDependencies": {
+    "alchemy-sdk": "^2.10.1",
     "autoprefixer": "latest",
     "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
     "ethers": "^6.7.1",
+    "npm": "^10.1.0",
     "postcss": "latest",
     "tailwindcss": "latest",
     "web3": "^4.1.2"
