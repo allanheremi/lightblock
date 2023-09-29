@@ -29,20 +29,19 @@ function Header() {
   return (
     <header className="h-24">
       <div className="flex justify-between h-[50%] p-4 lg:px-8">
-        <div className="w-[50%]">
+        <div className="w-full">
           {ethPrice !== null ? (
             <div className="flex flex-row gap-4">
-              <p>ETH/USD: {ethPrice}</p>{' '}
-              <p className="flex">
+              <p>
+                ETH/USD: {ethPrice}{' '}
                 {priceChange >= 0 ? (
-                  <p className="text-[#006400]">+</p>
+                  <span className="text-[#006400]">
+                    + {priceChange.toFixed(2)}%
+                  </span>
                 ) : (
-                  <p className="text-[#FF0000]">-</p>
-                )}
-                {priceChange >= 0 ? (
-                  <p className="text-[#006400]">{priceChange.toFixed(2)}%</p>
-                ) : (
-                  <p className="text-[#FF0000]">{priceChange.toFixed(2)}%</p>
+                  <span className="text-[#FF0000]">
+                    - {priceChange.toFixed(2)}%
+                  </span>
                 )}{' '}
               </p>{' '}
             </div>
