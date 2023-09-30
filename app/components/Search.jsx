@@ -61,6 +61,10 @@ function Search() {
       });
     };
     fetchAddressData();
+    const fetchInterval = setInterval(fetchAddressData, 180000);
+    return () => {
+      clearInterval(fetchInterval);
+    };
   }, [search]);
 
   return (
@@ -74,13 +78,23 @@ function Search() {
           onChange={e => setSearch(e.target.value)}
         />
         {info.address !== null ? (
-          <th className="font-normal text-[0.75rem] sm:text-[1rem] flex flex-col text-left">
-            <tr className="underline">{info.address}</tr>{' '}
-            <td>Last active: {info.lastActive}</td>
-            <td className="text-left text-md">
-              Balance: {info.balance.toFixed(5)} ETH
-            </td>
-          </th>
+          <table>
+            <tbody>
+              <tr>
+                <th className="font-normal text-[0.75rem] sm:text-[1rem] text-left underline">
+                  <p className="text-lg">Address info: </p>
+                </th>
+              </tr>
+              <tr>
+                <td>Last active: {info.lastActive}</td>
+              </tr>
+              <tr>
+                <td className="text-left text-md">
+                  Balance: {info.balance.toFixed(5)} ETH
+                </td>
+              </tr>
+            </tbody>
+          </table>
         ) : (
           false
         )}
