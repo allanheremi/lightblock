@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Network, Alchemy } from 'alchemy-sdk';
 import dotenv from 'dotenv';
 
-
 dotenv.config();
 const settings = {
   apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
@@ -14,13 +13,6 @@ const alchemy = new Alchemy(settings);
 
 function TransactionData() {
   const [blocks, setBlocks] = useState({
-    block1: null,
-    block2: null,
-    block3: null,
-    block4: null,
-    block5: null,
-  });
-  const [blockReward, setBlockReward] = useState({
     block1: null,
     block2: null,
     block3: null,
@@ -76,7 +68,6 @@ function TransactionData() {
                   </td>
                 ))}
               </tr>
-
 
               <th className="text-left">
                 Etherscan:{' '}
