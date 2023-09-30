@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Network, Alchemy } from 'alchemy-sdk';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 const settings = {
   apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
@@ -26,7 +27,7 @@ function TransactionData() {
     block4: null,
     block5: null,
   });
-  
+
   const [transactions, setTransactions] = useState({
     transaction1: null,
     transaction2: null,
@@ -63,21 +64,38 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-8 gap-8">
+      <div className="w-full flex flex-row p-0 gap-0">
         <div className="w-1/2 border-b-2 border-l-2 p-2">
-          <h2 className="text-left">Latest blocks</h2>
-          <div className="p-8">
+          <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-between">
-              <thead className="flex flex-col">
-                <tr>
-                  <th>Block:</th>
-                  {Object.keys(blocks).map((blockKey, index) => (
-                    <td className="flex p-2 underline" key={index}>
-                      {blocks[blockKey]}
-                    </td>
-                  ))}
-                </tr>
-              </thead>
+              <tr>
+                <th className="flex justify-center">Latest blocks:</th>
+                {Object.keys(blocks).map((blockKey, index) => (
+                  <td className="flex p-2 underline" key={index}>
+                    {blocks[blockKey]}
+                  </td>
+                ))}
+              </tr>
+
+
+              <th className="text-left">
+                Etherscan:{' '}
+                {Object.keys(blocks).map((blockKey, index) => (
+                  <td
+                    className="flex p-2 underline justify-center font-medium"
+                    key={index}
+                  >
+                    <button className="outline-slate-600 outline rounded-sm px-0 lg:px-2 hover:translate-y-[-0.1rem] hover:bg-slate-100 duration-300">
+                      <a
+                        href={`https://www.etherscan.io/block/${blocks[blockKey]}`}
+                        target="_blank"
+                      >
+                        Link
+                      </a>
+                    </button>
+                  </td>
+                ))}
+              </th>
             </table>
           </div>
         </div>
