@@ -1,8 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
   const [ethPrice, setEthPrice] = useState(null);
@@ -47,9 +45,6 @@ function Header() {
           ) : (
             <span>Loading...</span>
           )}
-        </div>
-        <div>
-          <FontAwesomeIcon icon={faMoon} color="orange" className='hover:cursor-pointer'/>
         </div>
       </div>
 
