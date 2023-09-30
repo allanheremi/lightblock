@@ -37,7 +37,7 @@ function Header() {
                   </span>
                 ) : (
                   <span className="text-[#FF0000]">
-                    - {priceChange.toFixed(2)}%
+                    {priceChange.toFixed(2)}%
                   </span>
                 )}{' '}
               </p>{' '}
