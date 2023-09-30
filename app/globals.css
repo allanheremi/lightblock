@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes myAnimation {
+    0% {
+      transform: scale(1);
+      background-color: transparent; 
+    }
+    50% {
+      transform: scale(1.2);
+      background-color: lightgreen; 
+    }
+    100% {
+      transform: scale(1);
+      background-color: transparent; 
+    }
+  }
+  
