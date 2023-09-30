@@ -15,19 +15,50 @@ const alchemy = new Alchemy(settings);
 
 function Search() {
   const [search, setSearch] = useState('');
-  const [info, setInfo] = useState({ address: null, balance: null });
+  const [info, setInfo] = useState({
+    address: null,
+    balance: null,
+    lastActive: null,
+  });
 
   useEffect(() => {
     const fetchAddressData = async () => {
       if (!web3.utils.isAddress(search)) {
         setSearch(search);
-        setInfo({ address: null, balance: null });
+        setInfo({ address: null, balance: null, lastActive: null });
         return;
       }
 
       const ethBalanceWei = await alchemy.core.getBalance(search);
       const ethBalanceFormatted = ethBalanceWei / 10 ** 18;
-      setInfo({ address: search, balance: ethBalanceFormatted });
+      const latestBlock = await alchemy.core.getAssetTransfers({
+        fromAddress: search,
+        category: ['internal', 'external', 'erc20', 'erc721', 'erc1155'],
+        maxCount: '0x1',
+      });
+
+      const timeStamp = (
+        await alchemy.core.getBlock(latestBlock.transfers[0].blockNum)
+      ).timestamp;
+      const unix = timeStamp * 1000;
+      const date = new Date(unix);
+
+      const formattedDate =
+        date.getFullYear() +
+        '-' +
+        date.getMonth() +
+        '-' +
+        date.getDate() +
+        '  ' +
+        date.getHours() +
+        ':' +
+        date.getMinutes();
+
+      setInfo({
+        address: search,
+        balance: ethBalanceFormatted,
+        lastActive: formattedDate,
+      });
     };
     fetchAddressData();
   }, [search]);
@@ -43,8 +74,9 @@ function Search() {
           onChange={e => setSearch(e.target.value)}
         />
         {info.address !== null ? (
-          <th className="font-normal text-[0.75rem] sm:text-[1rem]">
+          <th className="font-normal text-[0.75rem] sm:text-[1rem] flex flex-col text-left">
             <tr className="underline">{info.address}</tr>{' '}
+            <td>Last active: {info.lastActive}</td>
             <td className="text-left text-md">
               Balance: {info.balance.toFixed(5)} ETH
             </td>
