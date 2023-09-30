@@ -43,10 +43,12 @@ function Search() {
       const unix = timeStamp * 1000;
       const date = new Date(unix);
 
+      const month = date.getMonth() + 1;
+      const formattedMonth = month < 10 ? '0' + month : month;
       const formattedDate =
         date.getFullYear() +
         '-' +
-        date.getMonth() +
+        formattedMonth +
         '-' +
         date.getDate() +
         '  ' +
