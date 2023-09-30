@@ -12,6 +12,7 @@ const settings = {
 };
 
 const alchemy = new Alchemy(settings);
+const ensContractAddress = '0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85';
 
 function Search() {
   const [search, setSearch] = useState('');
@@ -23,6 +24,8 @@ function Search() {
 
   useEffect(() => {
     const fetchAddressData = async () => {
+  
+
       if (!web3.utils.isAddress(search)) {
         setSearch(search);
         setInfo({ address: null, balance: null, lastActive: null });
@@ -40,21 +43,16 @@ function Search() {
       const timeStamp = (
         await alchemy.core.getBlock(latestBlock.transfers[0].blockNum)
       ).timestamp;
+
       const unix = timeStamp * 1000;
       const date = new Date(unix);
-
-      const month = date.getMonth() + 1;
-      const formattedMonth = month < 10 ? '0' + month : month;
-      const formattedDate =
-        date.getFullYear() +
-        '-' +
-        formattedMonth +
-        '-' +
-        date.getDate() +
-        '  ' +
-        date.getHours() +
-        ':' +
-        date.getMinutes();
+      const formattedDate = date.toLocaleString('en-SE', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
 
       setInfo({
         address: search,
