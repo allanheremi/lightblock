@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { Network, Alchemy } from 'alchemy-sdk';
 import web3 from 'web3';
 import React, { useEffect, useState } from 'react';
@@ -12,7 +12,46 @@ const settings = {
 };
 
 const alchemy = new Alchemy(settings);
-const ensContractAddress = '0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85';
+
+async function fetchEthBalance(address) {
+  try {
+    const ethBalanceWei = await alchemy.core.getBalance(address);
+    const ethBalanceFormatted = ethBalanceWei / 10 ** 18;
+    return ethBalanceFormatted;
+  } catch (error) {
+    console.error('Error fetching ETH balance:', error);
+    return null;
+  }
+}
+
+async function fetchLastActiveDate(address) {
+  try {
+    const latestBlock = await alchemy.core.getAssetTransfers({
+      fromAddress: address,
+      category: ['internal', 'external', 'erc20', 'erc721', 'erc1155'],
+      maxCount: '0x1',
+    });
+
+    const timeStamp = (
+      await alchemy.core.getBlock(latestBlock.transfers[0].blockNum)
+    ).timestamp;
+
+    const unix = timeStamp * 1000;
+    const date = new Date(unix);
+    const formattedDate = date.toLocaleString('en-SE', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
+    return formattedDate;
+  } catch (error) {
+    console.error('Error fetching last active date:', error);
+    return null;
+  }
+}
 
 function Search() {
   const [search, setSearch] = useState('');
@@ -24,42 +63,29 @@ function Search() {
 
   useEffect(() => {
     const fetchAddressData = async () => {
-  
-
       if (!web3.utils.isAddress(search)) {
         setSearch(search);
         setInfo({ address: null, balance: null, lastActive: null });
         return;
       }
 
-      const ethBalanceWei = await alchemy.core.getBalance(search);
-      const ethBalanceFormatted = ethBalanceWei / 10 ** 18;
-      const latestBlock = await alchemy.core.getAssetTransfers({
-        fromAddress: search,
-        category: ['internal', 'external', 'erc20', 'erc721', 'erc1155'],
-        maxCount: '0x1',
-      });
+      try {
+        const [ethBalance, lastActive] = await Promise.all([
+          fetchEthBalance(search),
+          fetchLastActiveDate(search),
+        ]);
 
-      const timeStamp = (
-        await alchemy.core.getBlock(latestBlock.transfers[0].blockNum)
-      ).timestamp;
-
-      const unix = timeStamp * 1000;
-      const date = new Date(unix);
-      const formattedDate = date.toLocaleString('en-SE', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-      });
-
-      setInfo({
-        address: search,
-        balance: ethBalanceFormatted,
-        lastActive: formattedDate,
-      });
+        setInfo({
+          address: search,
+          balance: ethBalance,
+          lastActive: lastActive,
+        });
+      } catch (error) {
+        console.error('Error fetching address data:', error);
+        setInfo({ address: null, balance: null, lastActive: null });
+      }
     };
+
     fetchAddressData();
     const fetchInterval = setInterval(fetchAddressData, 180000);
     return () => {
@@ -75,7 +101,7 @@ function Search() {
           placeholder="Query info for a valid Ethereum address"
           className="w-full lg:w-2/3 border-gray-200 rounded-sm p-2 border-b-2"
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
         />
         {info.address !== null ? (
           <table>
@@ -90,7 +116,7 @@ function Search() {
               </tr>
               <tr>
                 <td className="text-left text-md">
-                  Balance: {info.balance.toFixed(5)} ETH
+                  Balance: {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
                 </td>
               </tr>
             </tbody>
