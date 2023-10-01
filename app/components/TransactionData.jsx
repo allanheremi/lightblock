@@ -76,14 +76,17 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-0 gap-0">
-        <div className="w-1/2 border-b-2 border-l-2 p-2">
+      <div className="w-full flex flex-row p-0 gap-0 bg-cyan-800 text-[#3ab23a]">
+        <div className="w-1/2 border-b-2 p-2 border-stone-300">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
               <tr>
                 <th className="flex justify-center">Last block:</th>
                 {Object.keys(blocks).map((blockKey, index) => (
-                  <td className="flex p-1 underline" key={index}>
+                  <td
+                    className="flex p-1 underline underline-offset-1"
+                    key={index}
+                  >
                     {blocks[blockKey]}
                   </td>
                 ))}
@@ -96,7 +99,7 @@ function TransactionData() {
                     className="flex p-1 underline justify-center font-medium"
                     key={index}
                   >
-                    <button className="outline-slate-600 outline rounded-sm px-0 lg:px-2 hover:translate-y-[-0.1rem] hover:bg-slate-100 duration-300">
+                    <button className="outline-stone-300 outline rounded-sm px-0 lg:px-2 hover:translate-y-[-0.1rem] hover:bg-slate-100 duration-300">
                       <a
                         href={`https://www.etherscan.io/block/${blocks[blockKey]}`}
                         target="_blank"
@@ -111,26 +114,26 @@ function TransactionData() {
           </div>
         </div>
 
-        <div className="w-1/2 border-b-2 border-l-2 p-2">
+        <div className="w-1/2 border-b-2 border-l-2 p-2 border-stone-300">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
               <tr>
                 <th className="flex justify-center underline pb-3">
                   Chain fees:
                 </th>
-                <td className="flex py-3 px-2 justify-start font-bold w-full text-left">
+                <td className="flex py-2 justify-start font-bold w-full text-left">
                   {' '}
                   Base ⛽{' '}
                   {gasPrice.gasPrice
-                    ? Number(gasPrice.gasPrice).toFixed() + 'GWEI '
+                    ? Number(gasPrice.gasPrice).toFixed()
                     : null}{' '}
                 </td>
 
-                <td className="flex py-3 px-2 fy-start font-bold  w-full">
+                <td className="flex py-2 fy-start font-bold  w-full">
                   {' '}
                   Max ⛽ {gasPrice.maxFeePerGas ? gasPrice.maxFeePerGas : null}
                 </td>
-                <td className="flex py-3 px-2 fy-start font-bold">
+                <td className="flex py-2 fy-start font-bold">
                   Priority ⛽{' '}
                   {gasPrice.maxPriorityFeePerGas
                     ? gasPrice.maxPriorityFeePerGas

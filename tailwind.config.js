@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'search-bg': "url('/searchBG.png')",
-        'footer-texture': "url('/img/footer-texture.png')",
+        'footer-bg': "url('/footer.png')",
       }
     },
   },

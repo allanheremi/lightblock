@@ -17,9 +17,7 @@ export default function Home() {
       <Header />
       <Search />
       <TransactionData />
-      {/* <Blocks />
-      <Transactions />
-      <Footer /> */}
+      <Footer/>
     </>
   );
 }
