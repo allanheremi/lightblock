@@ -3,6 +3,8 @@ import { Network, Alchemy } from 'alchemy-sdk';
 import web3 from 'web3';
 import React, { useEffect, useState } from 'react';
 import dotenv from 'dotenv';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 dotenv.config();
 
@@ -24,6 +26,7 @@ async function fetchEthBalance(address) {
   }
 }
 
+
 async function fetchLastActiveDate(address) {
   try {
     const latestBlock = await alchemy.core.getAssetTransfers({
@@ -40,7 +43,7 @@ async function fetchLastActiveDate(address) {
     const date = new Date(unix);
     const formattedDate = date.toLocaleString('en-SE', {
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
@@ -94,11 +97,12 @@ function Search() {
   }, [search]);
 
   return (
-    <div className="bg-search-bg bg-cover bg-center h-[12rem]">
+    <div className="p-8 bg-footer-bg bg-cover bg-no-repeat bg-fixed w-screen h-[16rem]">
       <div className="text-sm lg:text-lg p-8">
+        <h2 className='text-white py-4 hover:cursor-pointer' onClick={() => {navigator.clipboard.writeText('0x3A5229ACB0a3821FA6c988469534402bd5dBDFe6')}}>No address? Copy mock</h2>
         <input
           type="text"
-          placeholder="Query info for a valid Ethereum address"
+          placeholder="Query ETH address"
           className="w-full lg:w-2/3 border-gray-200 rounded-sm p-2 border-b-2"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -107,15 +111,15 @@ function Search() {
           <table>
             <tbody>
               <tr>
-                <th className="font-normal text-[0.75rem] sm:text-[1rem] text-left underline">
+                <th className="font-normal text-[0.75rem] sm:text-[1rem] text-left underline text-[#6ef06e]">
                   <p className="text-lg">Address info: </p>
                 </th>
               </tr>
               <tr>
-                <td>Last active: {info.lastActive}</td>
+                <td className='text-[#3ab23a]'>Last active: {info.lastActive}</td>
               </tr>
               <tr>
-                <td className="text-left text-md">
+                <td className="text-left text-md text-[#3ab23a]">
                   Balance: {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
                 </td>
               </tr>
