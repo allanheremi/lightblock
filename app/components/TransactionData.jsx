@@ -99,7 +99,7 @@ function TransactionData() {
                     className="flex p-1 underline justify-center font-medium"
                     key={index}
                   >
-                    <button className="outline-stone-300 outline rounded-lg px-1 lg:px-2 hover:translate-y-[-0.1rem] hover:bg-slate-100 duration-300">
+                    <button className="outline-stone-300 outline rounded-md px-2 hover:translate-y-[-0.1rem] hover:bg-slate-100 duration-300">
                       <a
                         href={`https://www.etherscan.io/block/${blocks[blockKey]}`}
                         target="_blank"
