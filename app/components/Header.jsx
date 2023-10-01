@@ -25,18 +25,18 @@ function Header() {
 
   return (
     <header className="h-24">
-      <div className="flex justify-between h-[50%] p-4 lg:px-8">
+      <div className="flex justify-between h-[50%] p-2 lg:px-8  bg-footer-bg bg-cover bg-no-repeat bg-fixed w-full text-white">
         <div className="w-full">
           {ethPrice !== null ? (
             <div className="flex flex-row gap-4">
               <p>
                 ETH/USD: {ethPrice}{' '}
                 {priceChange >= 0 ? (
-                  <span className="text-[#006400]">
+                  <span className="text-[#6ef06e]">
                     + {priceChange.toFixed(2)}%
                   </span>
                 ) : (
-                  <span className="text-[#FF0000]">
+                  <span className="text-[#f86767]">
                     {priceChange.toFixed(2)}%
                   </span>
                 )}{' '}
@@ -48,16 +48,18 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-grey border-w">
+      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-stone-400 bg-footer-bg bg-cover bg-no-repeat bg-fixed w-full ">
         <div className="flex items-center justify-start gap-1">
           <img
             src={'/Lightblock.png'}
             alt="logo"
             className="flex w-[2.5rem] rounded-sm"
           />
-          <h1 className="h-[full] lg:text-[2rem] text-[1rem]">Lightblock</h1>
+          <h1 className="h-[full] lg:text-[2rem] text-[1rem] text-white">
+            Lightblock
+          </h1>
         </div>
-        <div>Prices, NFTS</div>
+        <div className=" flex justify-around w-2/4 lg:w-1/4 px-8 text-white"> <button className='underline'>Prices</button> <button className='underline'>NFTS</button></div>
       </div>
     </header>
   );
