@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from './main';
+import Main from './Main';
 const Prices = () => {
   return <Main />;
 };
