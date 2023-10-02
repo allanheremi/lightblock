@@ -59,7 +59,7 @@ const Main = () => {
                 $
               </td>
               <td>
-                {Math.floor(item.marketCap / 1000000000) > 1
+                {Math.floor(item.marketCap / 1000000000) >= 1
                   ? Math.floor(item.marketCap / 1000000000) + ' B$'
                   : Math.floor(item.marketCap / 1000000) + ' M$'}
               </td>
