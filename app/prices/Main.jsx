@@ -49,7 +49,7 @@ const Main = () => {
               className="border-b border-stone-300 gap-2 py-2 text-center"
             >
               <td className="font-bold underline flex items-center justify-around">
-                <div className='gap-2'>
+                <div className='gap-2 flex '>
                   <img src={item.image} alt={item.name} className="w-8 h-8" />
                   {item.id.toUpperCase()}
                 </div>
@@ -62,7 +62,7 @@ const Main = () => {
               </td>
               <td>
                 {Math.floor(item.marketCap / 1000000000) >= 1
-                  ? Math.floor(item.marketCap / 1000000000) + ' B$'
+                  ? (item.marketCap / 1000000000).toFixed(2) + ' B$'
                   : Math.floor(item.marketCap / 1000000) + ' M$'}
               </td>
               <td>{item.marketCapRank}</td>
