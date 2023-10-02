@@ -10,7 +10,9 @@
 
 body {
     user-drag: none;
+    overflow-x: hidden;
   }
   
+
 
   
