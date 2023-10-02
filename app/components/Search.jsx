@@ -111,7 +111,7 @@ Copy mock address to clipboard
         <input
           type="text"
           placeholder="Query ETH address"
-          className="w-full lg:w-2/3 border-gray-200 rounded-sm p-2 border-b-2"
+          className="w-full lg:w-2/3 border-gray-200 rounded-sm p-2 border-b-2 text-stone-700"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
@@ -124,12 +124,12 @@ Copy mock address to clipboard
                 </th>
               </tr>
               <tr>
-                <td className="text-stone-300">
+                <td className="text-stone-100">
                   Last active: {info.lastActive}
                 </td>
               </tr>
               <tr>
-                <td className="text-left text-md text-stone-300">
+                <td className="text-left text-md text-stone-100">
                   Balance:{' '}
                   {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
                 </td>
