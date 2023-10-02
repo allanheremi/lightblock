@@ -33,7 +33,7 @@ function Header() {
                 ETH/USD: {ethPrice}{' '}
                 {priceChange >= 0 ? (
                   <span className="text-[#6ef06e]">
-                    + {priceChange.toFixed(2)}%
+                    +{priceChange.toFixed(2)}%
                   </span>
                 ) : (
                   <span className="text-[#f86767]">
