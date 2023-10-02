@@ -13,10 +13,10 @@ const Main = () => {
       axios.get(apiURL).then(response => {
         const data = response.data;
 
-        console.log(data)
+        console.log(data);
         const extractedData = data.map(item => ({
           id: item.id,
-          name: item.name,
+          name: item.symbol,
           image: item.image,
           currentPrice: item.current_price,
           marketCap: item.market_cap,
@@ -31,10 +31,10 @@ const Main = () => {
   }, []);
 
   return (
-    <main className='p-8'>
-      <table className="text-center w-full">
-        <thead className="p-8">
-          <tr className='p-8'>
+    <main className="p-8">
+      <table className="text-center w-4/5 sm:text-sm">
+        <thead className="">
+          <tr>
             <th>Image</th>
             <th>Name</th>
             <th>Price</th>
@@ -43,17 +43,29 @@ const Main = () => {
             <th>24H change</th>
           </tr>
         </thead>
-        <tbody className="p-8 text-center">
+        <tbody className=" text-center">
           {extractedData.map(item => (
-            <tr key={item.id} className="border-b border-stone-300 p-8">
+            <tr key={item.id} className="border-b border-stone-300 gap-2 py-2">
               <td>
-                <img src={item.image} alt={item.name} width={48} height={48} className='py-2'/>
+                <img src={item.image} alt={item.name} className="w-8 h-8" />
               </td>
-              <td className='text-bold'>{item.name}</td>
-              <td>{item.currentPrice} $</td>
-              <td>{Math.floor(item.marketCap / 1000000) }M$</td>
+              <td className="text-bold underline">{item.symbol}</td>
+              <td>
+                {item.currentPrice.length > 2
+                  ? item.currentPrice.toFixed(3)
+                  : item.currentPrice}{' '}
+                $
+              </td>
+              <td>
+                {Math.floor(item.marketCap / 1000000000) > 1
+                  ? Math.floor(item.marketCap / 1000000000) + ' B$'
+                  : Math.floor(item.marketCap / 1000000) + ' M$'}
+              </td>
               <td>{item.marketCapRank}</td>
-              <td>{item.marketCapChange.toFixed(3)}%</td>
+              <td className={`text-${item.marketCapChange >= 0 ? '[#6ef06e]' : 'red-[#f86767]'}`}>
+  {item.marketCapChange.toFixed(2)}%
+</td>
+
             </tr>
           ))}
         </tbody>
