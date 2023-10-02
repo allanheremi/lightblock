@@ -32,7 +32,7 @@ const Main = () => {
 
   return (
     <main className="p-4 lg:p-8">
-      <table className="text-start w-full text-sm lg:text-base mx-auto">
+      <table className="text-center w-full text-sm lg:text-base mx-auto">
         <thead className="">
           <tr>
             <th>Name</th>
@@ -42,14 +42,14 @@ const Main = () => {
             <th>24H change</th>
           </tr>
         </thead>
-        <tbody className=" text-start">
+        <tbody className=" text-center">
           {extractedData.map(item => (
             <tr
               key={item.id}
-              className="border-b border-stone-300 gap-2 py-2 text-start"
+              className="border-b border-stone-300 gap-2 py-2 text-center"
             >
-              <td className="font-bold underline flex items-center justify-around">
-                <div className='gap-2 flex items-align w-full justify-start'>
+              <td className="font-bold underline flex items-center justify-around text-start">
+                <div className='gap-2 flex items-align w-full justify-around'>
                   <img src={item.image} alt={item.name} className="w-8 h-8" />
                   {item.id.toUpperCase()}
                 </div>
