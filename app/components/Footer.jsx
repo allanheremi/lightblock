@@ -13,12 +13,11 @@ function Footer() {
               className="w-24 h-24 object-cover rounded-full"
               loading="lazy"
             />
-            <h1 className="text-stone-300 hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-2 ">
+            <h1 className="text-stone-300 hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-4 ">
               <a
                 href="https://ethereum.org/en/"
                 target="_blank"
                 className="underline"
-
               >
                 Powered by Ethereum
               </a>
@@ -33,12 +32,12 @@ function Footer() {
             />
 
             <ul className="text-stone-300 font-medium underline text-center">
-              <li className='hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-2'>
+              <li className="hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-1">
                 <a href="https://github.com/allanheremi" target="_blank">
                   Github
                 </a>
               </li>
-              <li className='hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-2'>
+              <li className="hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-1">
                 <a
                   href="https://www.linkedin.com/in/allanheremi/"
                   target="_blank"
@@ -46,7 +45,7 @@ function Footer() {
                   LinkedIn
                 </a>
               </li>
-              <li className='hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-2'>
+              <li className="hover:translate-y-[-5%]  hover:bg-cyan-600 rounded-md duration-300 p-1">
                 {' '}
                 <a
                   href="https://github.com/allanheremi/lightblock"
@@ -62,7 +61,9 @@ function Footer() {
 
       <div className="p-4 py-8 flex">
         <div className="w-full flex justify-start">
-          <span className="text-white text-xl italic">Lightblock © 2023 <br/> License: MIT</span>
+          <span className="text-white text-xl italic">
+            Lightblock © 2023 <br /> License: MIT
+          </span>
         </div>
       </div>
     </footer>

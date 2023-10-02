@@ -96,7 +96,7 @@ function Search() {
   }, [search]);
 
   return (
-    <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed w-screen h-[16rem]"> 
+    <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed w-screen h-[24rem]"> 
       <div className="text-sm lg:text-lg p-8">
         <button
           className="text-white py-4 hover:cursor-pointer outline-stone-300 w-full lg:w-2/3 rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 bg-cyan-700"
@@ -119,17 +119,17 @@ Copy mock address to clipboard
           <table>
             <tbody>
               <tr>
-                <th className="font-normal text-[0.75rem] sm:text-[1rem] text-left underline text-stone-100">
+                <th className="font-normal text-[0.75rem] sm:text-[1rem] text-left underline text-stone-100 gap-44 p-2 lg:p4">
                   <p className="text-lg">Address info: </p>
                 </th>
               </tr>
               <tr>
-                <td className="text-stone-100">
+                <td className="text-stone-100 p-2 lg:p-4">
                   Last active: {info.lastActive}
                 </td>
               </tr>
               <tr>
-                <td className="text-left text-md text-stone-100">
+                <td className="text-left text-md text-stone-100 p-2 lg:p-4">
                   Balance:{' '}
                   {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
                 </td>

@@ -1,10 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 function Header() {
   const [ethPrice, setEthPrice] = useState(null);
-  const [priceChange, setPriceChange] = useState(null);
+  const [priceChange, setPriceChange] = useState([]);
 
   useEffect(() => {
     const apiURL = 'https://api.coingecko.com/api/v3/coins/ethereum';
@@ -59,7 +60,17 @@ function Header() {
             Lightblock
           </h1>
         </div>
-        <div className=" flex justify-around w-2/4 lg:w-1/4 px-8 text-white items-center"> <button className='underline'>Prices</button> <button className='underline'>NFTS</button></div>
+        <div className=" flex justify-around w-2/4 lg:w-1/4 px-8 text-white items-center">
+          {' '}
+          <Link href={'/prices'}>
+            {' '}
+            <button className="underline">Prices</button>{' '}
+          </Link>
+          <Link href={'/nfts'}>
+          <button className="underline">NFTS</button>
+          
+          </Link>
+        </div>
       </div>
     </header>
   );

@@ -24,6 +24,11 @@ function TransactionData() {
     block3: null,
     block4: null,
     block5: null,
+    block6: null,
+    block7: null,
+    block8: null,
+    block9: null,
+    block10: null,
   });
 
   const fetchChainData = async () => {
@@ -49,6 +54,11 @@ function TransactionData() {
       const thirdLatest = latest - 2;
       const fourthLatest = latest - 3;
       const fifthLatest = latest - 4;
+      const sixthLatest = latest - 5;
+      const seventhLatest = latest - 6;
+      const eighthLatest = latest - 7;
+      const ninthLatest = latest - 8;
+      const tenthLatest = latest - 9;
 
       setBlocks({
         block1: latest,
@@ -56,6 +66,12 @@ function TransactionData() {
         block3: thirdLatest,
         block4: fourthLatest,
         block5: fifthLatest,
+        block6: sixthLatest,
+        block7: seventhLatest,
+        block8: eighthLatest,
+        block9: ninthLatest,
+        block10: tenthLatest,
+
       });
     } catch (error) {
       console.error('Error fetching blocks:', error);
@@ -81,7 +97,9 @@ function TransactionData() {
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
               <tr>
-                <th className="flex justify-center text-stone-200">Last block:</th>
+                <th className="flex justify-center text-stone-200">
+                  Last block:
+                </th>
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
                     className="flex p-1 underline underline-offset-1"
@@ -121,23 +139,31 @@ function TransactionData() {
                 <th className="flex justify-center underline pb-3 text-stone-200">
                   Chain fees:
                 </th>
-                <td className="flex py-2 justify-start font-bold w-full text-left ">
+                <td className="flex p-8 justify-between font-bold w-full text-left">
                   {' '}
                   Base ⛽{' '}
+                  <td>
                   {gasPrice.gasPrice
                     ? Number(gasPrice.gasPrice).toFixed()
-                    : null}{' '}
+                    : null}{' '}</td>
                 </td>
 
-                <td className="flex py-2 fy-start font-bold  w-full">
+                <td className="flex p-8 justify-between font-bold  w-full">
                   {' '}
-                  Max ⛽ {gasPrice.maxFeePerGas ? gasPrice.maxFeePerGas : null}
+                  Max ⛽ 
+                  <td>
+                  {gasPrice.maxFeePerGas ? gasPrice.maxFeePerGas : null}
+                    </td>
                 </td>
-                <td className="flex py-2 fy-start font-bold">
-                  Priority ⛽{' '}
+                <td className="flex p-8 justify-between font-bold w-full">
+                  Prio ⛽{' '}
+                  <td>
                   {gasPrice.maxPriorityFeePerGas
                     ? gasPrice.maxPriorityFeePerGas
                     : null}
+
+                  </td>
+                
                 </td>
               </tr>
             </table>
