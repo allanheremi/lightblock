@@ -81,7 +81,7 @@ function TransactionData() {
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
               <tr>
-                <th className="flex justify-center">Last block:</th>
+                <th className="flex justify-center text-stone-200">Last block:</th>
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
                     className="flex p-1 underline underline-offset-1"
@@ -92,7 +92,7 @@ function TransactionData() {
                 ))}
               </tr>
 
-              <th className="text-left">
+              <th className="text-left text-stone-200">
                 Details:{' '}
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
