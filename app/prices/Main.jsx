@@ -15,8 +15,8 @@ const Main = () => {
 
         console.log(data);
         const extractedData = data.map(item => ({
-          id: item.id,
-          name: item.symbol,
+          id: item.symbol,
+          name: item.name,
           image: item.image,
           currentPrice: item.current_price,
           marketCap: item.market_cap,
@@ -31,11 +31,10 @@ const Main = () => {
   }, []);
 
   return (
-    <main className="p-8">
-      <table className="text-center w-4/5 sm:text-sm">
+    <main className="p-4 lg:p-8">
+      <table className="text-center w-full text-sm lg:text-base mx-auto">
         <thead className="">
           <tr>
-            <th>Image</th>
             <th>Name</th>
             <th>Price</th>
             <th>M. Cap</th>
@@ -47,9 +46,10 @@ const Main = () => {
           {extractedData.map(item => (
             <tr key={item.id} className="border-b border-stone-300 gap-2 py-2">
               <td>
-                <img src={item.image} alt={item.name} className="w-8 h-8" />
               </td>
-              <td className="text-bold underline">{item.symbol}</td>
+              <td className="text-bold underline">
+              <img src={item.image} alt={item.name} className="w-8 h-8" />
+                {item.symbol}</td>
               <td>
                 {item.currentPrice.length > 2
                   ? item.currentPrice.toFixed(3)
@@ -62,10 +62,13 @@ const Main = () => {
                   : Math.floor(item.marketCap / 1000000) + ' M$'}
               </td>
               <td>{item.marketCapRank}</td>
-              <td className={`text-${item.marketCapChange >= 0 ? '[#6ef06e]' : 'red-[#f86767]'}`}>
-  {item.marketCapChange.toFixed(2)}%
-</td>
-
+              <td
+                className={`text-${
+                  item.marketCapChange >= 0 ? '[#6ef06e]' : '[#f86767]'
+                }`}
+              >
+                {item.marketCapChange.toFixed(2)}%
+              </td>
             </tr>
           ))}
         </tbody>
