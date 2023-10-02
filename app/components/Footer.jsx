@@ -56,7 +56,7 @@ Github
       </div>
 
       <div className="p-4 py-8 flex">
-        <div className="w-full flex justify-start gap-4 px-8">
+        <div className="w-full flex justify-start">
           <span className="text-white text-xl">Lightblock © 2023</span>
         </div>
       </div>
