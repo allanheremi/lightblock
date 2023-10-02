@@ -44,12 +44,14 @@ const Main = () => {
         </thead>
         <tbody className=" text-center">
           {extractedData.map(item => (
-            <tr key={item.id} className="border-b border-stone-300 gap-2 py-2">
-              <td>
+            <tr
+              key={item.id}
+              className="border-b border-stone-300 gap-2 py-2 text-center"
+            >
+              <td className="font-bold underline flex items-center justify-center gap-4">
+                <img src={item.image} alt={item.name} className="w-8 h-8" />
+                {item.id.toUpperCase()}
               </td>
-              <td className="text-bold underline">
-              <img src={item.image} alt={item.name} className="w-8 h-8" />
-                {item.symbol}</td>
               <td>
                 {item.currentPrice.length > 2
                   ? item.currentPrice.toFixed(3)
