@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Network, Alchemy } from 'alchemy-sdk';
 import web3 from 'web3';
 import React, { useEffect, useState } from 'react';
@@ -25,7 +25,6 @@ async function fetchEthBalance(address) {
     return null;
   }
 }
-
 
 async function fetchLastActiveDate(address) {
   try {
@@ -97,15 +96,24 @@ function Search() {
   }, [search]);
 
   return (
-    <div className="p-8 bg-footer-bg bg-cover bg-no-repeat bg-fixed w-screen h-[16rem]">
+    <div className="p-8 bg-footer-bg bg-blend-soft-light bg-no-repeat bg-fixed w-screen h-[16rem]">
       <div className="text-sm lg:text-lg p-8">
-        <h2 className='text-white py-4 hover:cursor-pointer' onClick={() => {navigator.clipboard.writeText('0x3A5229ACB0a3821FA6c988469534402bd5dBDFe6')}}>No address? Copy mock</h2>
+        <button
+          className="text-white py-4 hover:cursor-pointer outline-stone-300 w-full lg:w-2/3 rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 bg-cyan-700"
+          onClick={() => {
+            navigator.clipboard.writeText(
+              '0x3A5229ACB0a3821FA6c988469534402bd5dBDFe6'
+            );
+          }}
+        >
+Copy mock address to clipboard
+        </button>
         <input
           type="text"
           placeholder="Query ETH address"
           className="w-full lg:w-2/3 border-gray-200 rounded-sm p-2 border-b-2"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={e => setSearch(e.target.value)}
         />
         {info.address !== null ? (
           <table>
@@ -116,11 +124,14 @@ function Search() {
                 </th>
               </tr>
               <tr>
-                <td className='text-[#3ab23a]'>Last active: {info.lastActive}</td>
+                <td className="text-[#3ab23a]">
+                  Last active: {info.lastActive}
+                </td>
               </tr>
               <tr>
                 <td className="text-left text-md text-[#3ab23a]">
-                  Balance: {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
+                  Balance:{' '}
+                  {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
                 </td>
               </tr>
             </tbody>

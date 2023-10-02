@@ -3,7 +3,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-cyan-800 p-8 flex ">
+    <footer className="bg-cyan-700 p-8 flex ">
       <div className="flex items-center flex-col w-1/2 text-center gap-2 underline text-stone-300">
         <img
           src="/ethTransparent.png"

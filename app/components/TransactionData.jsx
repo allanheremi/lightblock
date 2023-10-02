@@ -76,7 +76,7 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-0 gap-0 bg-cyan-800 text-[#3ab23a]">
+      <div className="w-full flex flex-row p-0 gap-0 bg-cyan-700 text-[#3ab23a]">
         <div className="w-1/2 border-b-2 p-2 border-stone-300">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
