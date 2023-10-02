@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'search-bg': "url('/searchBG.png')",
+        'search-bg': 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(214 211 209)), url("/searchBG.png")',
         'footer-bg': "url('/footer.png')",
-      }
+      },
     },
   },
   plugins: [],

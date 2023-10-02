@@ -76,7 +76,7 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-0 gap-0 bg-cyan-700 text-[#3ab23a]">
+      <div className="w-full flex flex-row p-0 gap-0 bg-cyan-700 text-stone-300">
         <div className="w-1/2 border-b-2 p-2 border-stone-300">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
@@ -99,7 +99,7 @@ function TransactionData() {
                     className="flex p-1 underline justify-center font-medium"
                     key={index}
                   >
-                    <button className="outline-stone-300 outline rounded-md px-2 hover:translate-y-[-0.1rem] hover:bg-slate-100 duration-300">
+                    <button className="outline-stone-300 outline rounded-md px-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300">
                       <a
                         href={`https://www.etherscan.io/block/${blocks[blockKey]}`}
                         target="_blank"
@@ -114,14 +114,14 @@ function TransactionData() {
           </div>
         </div>
 
-        <div className="w-1/2 border-b-2 border-l-2 p-2 border-stone-300">
+        <div className="w-1/2 border-b-2 border-l-2 p-2 border-stone-300 ">
           <div className="p-0 lg:p-8">
-            <table className="flex flex-row justify-around text-center">
+            <table className="flex flex-row justify-around text-center text-stone-300">
               <tr>
-                <th className="flex justify-center underline pb-3">
+                <th className="flex justify-center underline pb-3 text-stone-200">
                   Chain fees:
                 </th>
-                <td className="flex py-2 justify-start font-bold w-full text-left">
+                <td className="flex py-2 justify-start font-bold w-full text-left ">
                   {' '}
                   Base ⛽{' '}
                   {gasPrice.gasPrice
