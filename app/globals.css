@@ -86,3 +86,19 @@ body {
   backdrop-filter: blur(11.1px);
   -webkit-backdrop-filter: blur(11.1px);
 }
+
+.morphism-6 {
+  background-color: rgb(21 94 117);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.1px);
+  -webkit-backdrop-filter: blur(11.1px);
+}
+
+.morphism-6-noround {
+  background-color: rgb(21 94 117);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.1px);
+  -webkit-backdrop-filter: blur(11.1px);
+}
+

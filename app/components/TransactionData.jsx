@@ -92,8 +92,8 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-white">
-        <div className="w-1/2 border-b-2 p-2 border-stone-300">
+      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-white  bg-search-bg bg-cover bg-repeat bg-fixed bg-blend-darken bg-top border-t-2">
+        <div className="w-1/2  p-2">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
               <tr>
@@ -132,32 +132,32 @@ function TransactionData() {
           </div>
         </div>
 
-        <div className="w-1/2 border-b-2 border-l-2 p-2 border-stone-300 ">
+        <div className="w-1/2 border-l-2 p-2 border-white ">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center text-white">
               <tr>
-                <th className="flex justify-center underline pb-3 text-white">
+                <th className="flex justify-center underline pb-3 text-white p-8">
                   Chain fees:
                 </th>
                 <td className="flex p-8 justify-between font-bold w-full text-left">
                   {' '}
                   Base ⛽{' '}
-                  <td>
+                  <td className='text-center grow '>
                   {gasPrice.gasPrice
                     ? Number(gasPrice.gasPrice).toFixed()
                     : null}{' '}</td>
                 </td>
 
-                <td className="flex p-8 justify-between font-bold  w-full">
+                <td className="flex p-8 justify-between font-bold  w-full text-left">
                   {' '}
                   Max ⛽ 
-                  <td>
+                  <td className='text-center grow'>
                   {gasPrice.maxFeePerGas ? gasPrice.maxFeePerGas : null}
                     </td>
                 </td>
                 <td className="flex p-8 justify-between font-bold w-full">
                   Prio ⛽{' '}
-                  <td>
+                  <td className='text-center grow'>
                   {gasPrice.maxPriorityFeePerGas
                     ? gasPrice.maxPriorityFeePerGas
                     : null}

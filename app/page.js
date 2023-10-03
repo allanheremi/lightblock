@@ -11,10 +11,12 @@ const TransactionData = dynamic(() => import('./components/TransactionData'), {
 export default function Home() {
   return (
     <>
+    <div className='bg-footer-bg bg-blend-difference'>
       <Header />
       <Search />
       <TransactionData />
       <Footer/>
+      </div>
     </>
   );
 }

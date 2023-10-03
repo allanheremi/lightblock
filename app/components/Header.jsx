@@ -25,8 +25,8 @@ function Header() {
   }, []);
 
   return (
-    <header className="h-24">
-      <div className="flex justify-between h-[50%] p-2 lg:px-8  w-full text-white morphism-2-noround">
+    <header className="h-24  bg-search-bg bg-cover bg-repeat bg-fixed bg-top bg-opacity-20 bg-blend-darken ">
+      <div className="flex justify-between h-[50%] p-2 lg:px-8  w-full text-white ">
         <div className="w-full">
           {ethPrice !== null ? (
             <div className="flex flex-row gap-4">
@@ -49,7 +49,7 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-white w-full morphism-2-noround ">
+      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-b border-opacity-30  bg-top border-white w-full ">
         <div className="flex items-center justify-start gap-1">
           <img
             src={'/Lightblock.png'}

@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'search-bg': 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(214 211 209)), url("/searchBG.png")',
+        'search-bg': 'linear-gradient(to bottom , rgba(46, 16, 101, 0.65), rgba(30, 27, 75)), url("/footer.png")',
         'footer-bg': "url('/footer.png')",
       },
     },

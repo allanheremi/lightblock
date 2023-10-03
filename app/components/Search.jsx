@@ -105,7 +105,7 @@ function Search() {
   };
 
   return (
-    <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed w-screen h-[24rem]">
+    <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed  w-screen h-[24rem] bg-top bg-blend-darken">
       <div className="text-sm lg:text-lg p-8">
         <input
           type="text"
