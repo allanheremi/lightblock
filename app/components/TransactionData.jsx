@@ -92,7 +92,7 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-white  bg-search-bg bg-cover bg-repeat bg-fixed bg-blend-darken bg-top border-t-2">
+      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-white  bg-search-bg bg-cover bg-repeat bg-fixed bg-blend-darken bg-top ">
         <div className="w-1/2  p-2">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
@@ -132,7 +132,7 @@ function TransactionData() {
           </div>
         </div>
 
-        <div className="w-1/2 border-l-2 p-2 border-white ">
+        <div className="w-1/2 border-l-2 p-2 border-white border-opacity-20">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center text-white">
               <tr>
