@@ -77,15 +77,15 @@ const Main = () => {
   return (<>
   <Link href={'/'}><button class="fixed bottom-5 right-5 z-10 p-2 bg-white rounded-lg">Home</button></Link>
 
-    <main className="p-8 lg:p-24 bg-search-bg morphism-6-noround text-cyan-400">
-      <table className="text-center w-full text-xs lg:text-base mx-auto ">
+    <main className="p-8 lg:p-24 bg-search-bg morphism-6-noround text-cyan-400 bg-cover">
+      <table className="text-center w-full text-xs lg:text-base mx-auto">
         <thead>
-          <tr>
-            <th className="border-cyan-200 border-y-4">Name</th>
-            <th className="border-cyan-200 border-y-4">Price</th>
-            <th className="border-cyan-200 border-y-4"> M. Cap</th>
+          <tr> 
+            <th className="border-cyan-200 border-y-4 py-4">Name</th>
+            <th className="border-cyan-200 border-y-4 py-4">Price</th>
+            <th className="border-cyan-200 border-y-4 py-4"> M. Cap</th>
 
-            <th className="border-cyan-200 border-y-4">24H change</th>
+            <th className="border-cyan-200 border-y-4 py-4">24H change</th>
           </tr>
         </thead>
         <tbody className=" text-center">
@@ -94,7 +94,7 @@ const Main = () => {
               key={item.id}
               className="border-b border-cyan-100  gap-2 py-2 text-center"
             >
-              <td className="font-bold underline text-start gap-4 flex w-full py-2 border-cyan-100  px-0.5">
+             <Link href={`/prices/${item.name}`}><td className="font-bold underline text-start gap-4 flex w-full py-2 border-cyan-100  px-0.5">
                 <div className="grid grid-cols-2 w-full">
                   <div className="col-span-1 flex justify-center items-center">
                     <img src={item.image} alt={item.name} className="w-8 h-8" />
@@ -104,6 +104,8 @@ const Main = () => {
                   </div>
                 </div>
               </td>
+              </Link> 
+
               <td className="border-cyan-100  px-0.5">
                 {item.currentPrice <= 10
                   ? item.currentPrice.toFixed(2)
