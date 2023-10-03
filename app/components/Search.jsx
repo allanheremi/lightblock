@@ -115,7 +115,7 @@ function Search() {
           onChange={e => setSearch(e.target.value)}
         />
         <button
-          className="text-white font-bold py-2  hover:cursor-pointer outline-stone-300 w-full lg:w-2/3 rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 morphism-5-noround"
+          className="text-stone-700 font-bold py-2  hover:cursor-pointer outline-stone-300 w-full lg:w-2/3 rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 morphism-4-noround"
           onClick={() => handleCopy()}
         >
           Copy mock address to clipboard

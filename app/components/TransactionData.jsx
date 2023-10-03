@@ -92,12 +92,12 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-stone-300">
+      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-white">
         <div className="w-1/2 border-b-2 p-2 border-stone-300">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center">
               <tr>
-                <th className="flex justify-center text-stone-200">
+                <th className="flex justify-center text-white">
                   Last block:
                 </th>
                 {Object.keys(blocks).map((blockKey, index) => (
@@ -110,14 +110,14 @@ function TransactionData() {
                 ))}
               </tr>
 
-              <th className="text-left text-stone-200">
+              <th className="text-left text-white">
                 Details:{' '}
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
                     className="flex p-1 underline justify-center font-medium"
                     key={index}
                   >
-                    <button className="outline-stone-300 outline rounded-md px-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300">
+                    <button className="outline-stone-300 outline rounded-md px-2 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">
                       <a
                         href={`https://www.etherscan.io/block/${blocks[blockKey]}`}
                         target="_blank"
@@ -134,9 +134,9 @@ function TransactionData() {
 
         <div className="w-1/2 border-b-2 border-l-2 p-2 border-stone-300 ">
           <div className="p-0 lg:p-8">
-            <table className="flex flex-row justify-around text-center text-stone-300">
+            <table className="flex flex-row justify-around text-center text-white">
               <tr>
-                <th className="flex justify-center underline pb-3 text-stone-200">
+                <th className="flex justify-center underline pb-3 text-white">
                   Chain fees:
                 </th>
                 <td className="flex p-8 justify-between font-bold w-full text-left">

@@ -33,11 +33,11 @@ function Header() {
               <p>
                 ETH/USD: {ethPrice}{' '}
                 {priceChange >= 0 ? (
-                  <span className="text-[#6ef06e]">
+                  <span className="text-[#2e902e] morphism-3 p-0.5">
                     +{priceChange.toFixed(2)}%
                   </span>
                 ) : (
-                  <span className="text-[#f86767]">
+                  <span className="text-[#f64b4b] morphism-3 p-0.5">
                     {priceChange.toFixed(2)}%
                   </span>
                 )}{' '}
@@ -60,14 +60,14 @@ function Header() {
             Lightblock
           </h1>
         </div>
-        <div className=" flex justify-around w-2/4 lg:w-1/4 px-8 text-white items-center">
+        <div className=" flex justify-around w-3/5 lg:w-1/4 px-8 text-white items-center">
           {' '}
           <Link href={'/prices'}>
             {' '}
-            <button className="underline">Prices</button>{' '}
+            <button className=" morphism-3 p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">Prices</button>{' '}
           </Link>
           <Link href={'/nfts'}>
-          <button className="underline">NFTS</button>
+          <button className=" morphism-3 p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">NFTS</button>
           
           </Link>
         </div>
