@@ -77,7 +77,7 @@ const Main = () => {
   return (<>
   <Link href={'/'}><button class="fixed bottom-5 right-5 z-10 p-2 bg-white rounded-lg">Home</button></Link>
 
-    <main className="p-8 lg:p-24 morphism-7-noround-fill text-cyan-400">
+    <main className="p-8 lg:p-24 bg-search-bg morphism-6-noround text-cyan-400">
       <table className="text-center w-full text-xs lg:text-base mx-auto ">
         <thead>
           <tr>

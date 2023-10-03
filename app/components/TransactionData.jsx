@@ -123,7 +123,7 @@ function TransactionData() {
           </div>
         </div>
 
-        <div className="w-1/2 border-l-2 p-2 border-white border-opacity-20">
+        <div className="w-1/2  p-2 border-white border-opacity-20">
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center text-white">
               <tr>
