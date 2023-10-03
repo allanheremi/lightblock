@@ -33,11 +33,11 @@ function Header() {
               <p>
                 ETH/USD: {ethPrice}{' '}
                 {priceChange >= 0 ? (
-                  <span className="text-[#2e902e] morphism-3 p-0.5">
+                  <span className="text-[#2e902e]  p-0.5">
                     +{priceChange.toFixed(2)}%
                   </span>
                 ) : (
-                  <span className="text-[#f64b4b] morphism-3 p-0.5">
+                  <span className="text-[#f64b4b] p-0.5">
                     {priceChange.toFixed(2)}%
                   </span>
                 )}{' '}
@@ -64,10 +64,10 @@ function Header() {
           {' '}
           <Link href={'/prices'}>
             {' '}
-            <button className=" morphism-3 p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">Prices</button>{' '}
+            <button className=" morphism-3-noround rounded-sm p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">Prices</button>{' '}
           </Link>
           <Link href={'/nfts'}>
-          <button className=" morphism-3 p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">NFTS</button>
+          <button className=" morphism-3-noround rounded-sm p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">NFTS</button>
           
           </Link>
         </div>

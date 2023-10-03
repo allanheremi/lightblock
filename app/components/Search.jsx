@@ -106,16 +106,16 @@ function Search() {
 
   return (
     <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed  w-screen h-[24rem] bg-top bg-blend-darken">
-      <div className="text-sm lg:text-lg p-8">
+      <div className="text-sm lg:text-lg p-8 flex flex-col">
         <input
           type="text"
           placeholder="Query ETH address"
-          className="w-full lg:w-2/3 border-gray-200 rounded-sm p-2 border-b-2 text-stone-700"
+          className="w-full lg:w-2/5 border-gray-200 rounded-sm p-2 border-b-2 text-stone-700"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
         <button
-          className="text-stone-700 font-bold py-2  hover:cursor-pointer outline-stone-300 w-full lg:w-2/3 rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 morphism-4-noround"
+          className="text-stone-700 w-full lg:w-2/5 font-bold py-2 text-xs hover:cursor-pointer outline-stone-300  rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 morphism-4-noround"
           onClick={() => handleCopy()}
         >
           Copy mock address to clipboard
