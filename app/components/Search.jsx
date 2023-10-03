@@ -3,8 +3,7 @@ import { Network, Alchemy } from 'alchemy-sdk';
 import web3 from 'web3';
 import React, { useEffect, useState } from 'react';
 import dotenv from 'dotenv';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
 
 dotenv.config();
 
@@ -95,19 +94,19 @@ function Search() {
     };
   }, [search]);
 
+  function showToast() {
+    toast('Copied!', {
+      position: 'top-left',
+    });
+  }
+  const handleCopy = () => {
+    navigator.clipboard.writeText('0x3A5229ACB0a3821FA6c988469534402bd5dBDFe6');
+    showToast();
+  };
+
   return (
-    <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed w-screen h-[24rem]"> 
+    <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed w-screen h-[24rem]">
       <div className="text-sm lg:text-lg p-8">
-        <button
-          className="text-white py-4 hover:cursor-pointer outline-stone-300 w-full lg:w-2/3 rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 bg-cyan-700"
-          onClick={() => {
-            navigator.clipboard.writeText(
-              '0x3A5229ACB0a3821FA6c988469534402bd5dBDFe6'
-            );
-          }}
-        >
-Copy mock address to clipboard
-        </button>
         <input
           type="text"
           placeholder="Query ETH address"
@@ -115,6 +114,12 @@ Copy mock address to clipboard
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
+        <button
+          className="text-white font-bold py-2  hover:cursor-pointer outline-stone-300 w-full lg:w-2/3 rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 morphism-5-noround"
+          onClick={() => handleCopy()}
+        >
+          Copy mock address to clipboard
+        </button>
         {info.address !== null ? (
           <table>
             <tbody>
