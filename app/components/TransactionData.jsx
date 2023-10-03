@@ -56,9 +56,6 @@ function TransactionData() {
       const fifthLatest = latest - 4;
       const sixthLatest = latest - 5;
       const seventhLatest = latest - 6;
-      const eighthLatest = latest - 7;
-      const ninthLatest = latest - 8;
-      const tenthLatest = latest - 9;
 
       setBlocks({
         block1: latest,
@@ -68,10 +65,6 @@ function TransactionData() {
         block5: fifthLatest,
         block6: sixthLatest,
         block7: seventhLatest,
-        block8: eighthLatest,
-        block9: ninthLatest,
-        block10: tenthLatest,
-
       });
     } catch (error) {
       console.error('Error fetching blocks:', error);
@@ -92,17 +85,15 @@ function TransactionData() {
 
   return (
     <>
-      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-white  bg-search-bg bg-cover bg-repeat bg-fixed bg-blend-darken bg-top ">
+      <div className="w-full flex flex-row p-0 gap-0 bg-[#08a4a7] text-white  bg-search-bg bg-cover bg-repeat bg-fixed bg-blend-darken bg-top">
         <div className="w-1/2  p-2">
           <div className="p-0 lg:p-8">
-            <table className="flex flex-row justify-around text-center">
+            <table className="flex flex-row justify-around text-center ">
               <tr>
-                <th className="flex justify-center text-white">
-                  Last block:
-                </th>
+                <th className="flex justify-center text-white">Last block:</th>
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
-                    className="flex p-1 underline underline-offset-1"
+                    className="flex p-2 underline underline-offset-1"
                     key={index}
                   >
                     {blocks[blockKey]}
@@ -110,14 +101,14 @@ function TransactionData() {
                 ))}
               </tr>
 
-              <th className="text-left text-white">
+              <th className="text-left text-white ">
                 Details:{' '}
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
-                    className="flex p-1 underline justify-center font-medium"
+                    className="flex p-2 underline justify-center font-medium"
                     key={index}
                   >
-                    <button className="outline-stone-300 outline rounded-md px-2 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">
+                    <button className="outline-stone-300 outline rounded-md px-2 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300 gap">
                       <a
                         href={`https://www.etherscan.io/block/${blocks[blockKey]}`}
                         target="_blank"
@@ -142,28 +133,27 @@ function TransactionData() {
                 <td className="flex p-8 justify-between font-bold w-full text-left">
                   {' '}
                   Base ⛽{' '}
-                  <td className='text-center grow '>
-                  {gasPrice.gasPrice
-                    ? Number(gasPrice.gasPrice).toFixed()
-                    : null}{' '}</td>
+                  <td className="text-center grow ">
+                    {gasPrice.gasPrice
+                      ? Number(gasPrice.gasPrice).toFixed()
+                      : null}{' '}
+                  </td>
                 </td>
 
                 <td className="flex p-8 justify-between font-bold  w-full text-left">
                   {' '}
-                  Max ⛽ 
-                  <td className='text-center grow'>
-                  {gasPrice.maxFeePerGas ? gasPrice.maxFeePerGas : null}
-                    </td>
+                  Max ⛽
+                  <td className="text-center grow">
+                    {gasPrice.maxFeePerGas ? gasPrice.maxFeePerGas : null}
+                  </td>
                 </td>
                 <td className="flex p-8 justify-between font-bold w-full">
                   Prio ⛽{' '}
-                  <td className='text-center grow'>
-                  {gasPrice.maxPriorityFeePerGas
-                    ? gasPrice.maxPriorityFeePerGas
-                    : null}
-
+                  <td className="text-center grow">
+                    {gasPrice.maxPriorityFeePerGas
+                      ? gasPrice.maxPriorityFeePerGas
+                      : null}
                   </td>
-                
                 </td>
               </tr>
             </table>

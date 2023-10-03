@@ -3,7 +3,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="morphism-2-noround">
+    <footer className="morphism-7-noround">
       <div className=" p-4 pt-16 flex ">
         <div className="w-full flex gap-4">
           <div className="flex items-center flex-col w-1/2 text-center gap-2 text-white">
