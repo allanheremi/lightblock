@@ -26,9 +26,6 @@ function TransactionData() {
     block5: null,
     block6: null,
     block7: null,
-    block8: null,
-    block9: null,
-    block10: null,
   });
 
   const fetchChainData = async () => {
