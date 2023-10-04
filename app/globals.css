@@ -115,7 +115,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .morphism-7-noround {
   background: rgba( 109, 40, 217, 0.1 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 16px );
+  backdrop-filter: blur( 160px );
   -webkit-backdrop-filter: blur( 16px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   
@@ -130,6 +130,15 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   backdrop-filter: blur( 12px );
   -webkit-backdrop-filter: blur( 16px );
 
+  
+}
+
+.morphism-8-noround {
+  background: rgba(188, 153, 243, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(16, 31, 242, 0.8);
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 2px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   
 }
 
