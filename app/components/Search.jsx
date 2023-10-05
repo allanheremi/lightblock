@@ -105,7 +105,7 @@ function Search() {
   };
 
   return (
-    <div className="p-8 w-screen h-[24rem] morphism-bg-3">
+    <div className="p-8 w-screen h-[24rem] morphism-bg-1">
       <div className="text-sm lg:text-lg p-8 flex flex-col">
         <input
           type="text"
@@ -115,7 +115,7 @@ function Search() {
           onChange={e => setSearch(e.target.value)}
         />
         <button
-          className="text-[#C70039] w-full lg:w-2/5 font-bold py-2 underline text-xs hover:cursor-pointer rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-[#141E46] hover:text-[#FF6969] duration-300 morphism-bg-1"
+          className="text-[#C70039] w-full lg:w-2/5 font-bold py-2 underline text-xs hover:cursor-pointer rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-[#141E46] hover:text-[#141E46] duration-300 morphism-bg-2"
           onClick={() => handleCopy()}
         >
           Copy mock address to clipboard

@@ -25,7 +25,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="h-24 morphism-bg-1 text-[#141E46]">
+    <header className="h-24 morphism-bg-4 text-[#FFF5E0]">
       <div className="flex justify-between h-[50%] p-2 lg:px-8  w-full  ">
         <div className="w-full">
           {ethPrice !== null ? (
@@ -49,18 +49,18 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-opacity-30 border-[#141E46] w-full ">
+      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-opacity-30 border-[#FFF5E0] w-full ">
         <div className="flex items-center justify-start gap-1">
           <img
             src={'/Lightblockgrey.png'}
             alt="logo"
             className="flex w-[2.5rem] rounded-full"
           />
-          <h1 className="h-[full] lg:text-[2rem] text-[1rem] text-[#141E46]">
+          <h1 className="h-[full] lg:text-[2rem] text-[1rem] text-[#FFF5E0]">
             Lightblock
           </h1>
         </div>
-        <div className=" flex justify-around w-3/5 lg:w-1/4 px-8 text-[#141E46] items-center">
+        <div className=" flex justify-around w-3/5 lg:w-1/4 px-8 text-[#FFF5E0] items-center">
           {' '}
           <Link href={'/prices'}>
             {' '}
