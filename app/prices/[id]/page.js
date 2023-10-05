@@ -49,11 +49,28 @@ const Coin = ({ params }) => {
         dayHigh: data.market_data.high_24h.usd,
         dayLow: data.market_data.low_24h.usd,
         totalSupply: data.market_data.total_supply,
-        ath: data.market_data.ath.usd
+        ath: data.market_data.ath.usd,
       };
       setExtractedData(extractedData);
     });
   }, [params.id]);
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const timestamp = new Date(payload[0].payload[0]);
+      const price = payload[0].value.toFixed(0) + '$';
+  
+      return (
+        <div className="custom-tooltip bg-white p-2 rounded-lg">
+          <p>Date: {timestamp.toDateString()}</p>
+          <p>Price: {price}</p>
+        </div>
+      );
+    }
+
+  return null;
+};
+
 
   console.log(extractedData);
 
@@ -64,59 +81,65 @@ const Coin = ({ params }) => {
       </div>
     );
   }
+
+
   return (
     <>
       <div className="w-screen h-screen px-8">
         <Link href={'/prices'}>
-        <button className="p-2 items-center bg-[#5A029E] flex justify-center rounded-md fixed bottom-5 right-5 z-10rounded-lg">
-      Back
-        </button>
-
+          <button className="p-2 items-center bg-[#5A029E] flex justify-center rounded-md fixed bottom-5 right-5 z-10rounded-lg text-white">
+            Back
+          </button>
         </Link>
-       
-        <h1 className="text-center text-4xl text-[#5A029E]">
+
+        <h1 className="text-center text-xl text-[#5A029E] font-bold">
           {extractedData.name} data
         </h1>
 
         <div className="flex items-center w-full h-[50%] justify-center p-12 py-4">
-          <ResponsiveContainer>
+          <ResponsiveContainer width={'99%'}>
             <AreaChart
               width={300}
               height={300}
               data={marketData}
               className="flex justify-start bg-black"
             >
-              <CartesianGrid strokeDasharray="0 2" />
-              <XAxis dataKey={'name'} />
-              <YAxis />
-              <Tooltip />
+              <CartesianGrid vertical={false}/>
+              <XAxis
+  dataKey="name"
+                tickLine={false}
+                orientation="bottom"
+                axisLine={false}
+              />
+              <YAxis tickLine={false} orientation="left" axisLine={false} />
+              <Tooltip content={<CustomTooltip />}/>
+
               <Area type="linear" dataKey="1" stroke="#FFF" fill="#FFA8FF" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
-        <div className='px-12'>
+        <div className="px-12">
+          <div className="w-full mt-4 p-4 px-8 flex justify-between border-b-2 border-slate-300">
+            <p>Market cap rank:</p> <p>{extractedData.marketCapRank}</p>
+          </div>
+          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+            <p> Current price: </p> <p> {extractedData.currentPrice}$</p>
+          </div>
+          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+            <p>24H high: </p> <p> {extractedData.dayHigh}$</p>
+          </div>
+          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+            <p> 24H low: </p> <p> {extractedData.dayLow}$</p>
+          </div>
 
-        <div className="w-full mt-4 p-4 px-8 flex justify-between border-b-2 border-slate-300">
-          <p>Market cap rank:</p> <p>{extractedData.marketCapRank}</p>
+          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+            <p> All time high: </p> <p>{extractedData.ath}$</p>
+          </div>
+          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+            <p>Volume </p> <p> {(extractedData.tradingVolume / 1000000).toFixed(0)}M$</p>
+          </div>
         </div>
-        <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
-          <p> Current price: </p> <p> {extractedData.currentPrice}$</p>
-        </div>
-        <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
-          <p>24H high: </p> <p> {extractedData.dayHigh}$</p>
-        </div>
-        <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
-          <p> 24H low: </p> <p> {extractedData.dayLow}$</p>
-        </div>
-      
-        <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
-          <p> All time high: </p> <p>{extractedData.ath}$</p>
-        </div>
-        <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
-          <p>Volume </p> <p> {extractedData.tradingVolume}$</p>
-        </div>
-      </div>
       </div>
     </>
   );
