@@ -25,8 +25,8 @@ function Header() {
   }, []);
 
   return (
-    <header className="h-24  bg-search-bg bg-cover bg-repeat bg-fixed bg-top bg-opacity-20 bg-blend-darken ">
-      <div className="flex justify-between h-[50%] p-2 lg:px-8  w-full text-white ">
+    <header className="h-24 morphism-bg-1 text-[#141E46]">
+      <div className="flex justify-between h-[50%] p-2 lg:px-8  w-full  ">
         <div className="w-full">
           {ethPrice !== null ? (
             <div className="flex flex-row gap-4">
@@ -49,26 +49,29 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-b border-opacity-30  bg-top border-white w-full ">
+      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-opacity-30 border-[#141E46] w-full ">
         <div className="flex items-center justify-start gap-1">
           <img
-            src={'/Lightblock.png'}
+            src={'/Lightblockgrey.png'}
             alt="logo"
-            className="flex w-[2.5rem] rounded-sm"
+            className="flex w-[2.5rem] rounded-full"
           />
-          <h1 className="h-[full] lg:text-[2rem] text-[1rem] text-white">
+          <h1 className="h-[full] lg:text-[2rem] text-[1rem] text-[#141E46]">
             Lightblock
           </h1>
         </div>
-        <div className=" flex justify-around w-3/5 lg:w-1/4 px-8 text-white items-center">
+        <div className=" flex justify-around w-3/5 lg:w-1/4 px-8 text-[#141E46] items-center">
           {' '}
           <Link href={'/prices'}>
             {' '}
-            <button className=" morphism-3-noround rounded-sm p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">Prices</button>{' '}
+            <button className=" morphism-bg-2 rounded-sm p-1 text-[#141E46] hover:translate-y-[-0.1rem] hover:bg-[#C70039] duration-300 font-semibold">
+              Prices
+            </button>{' '}
           </Link>
           <Link href={'/nfts'}>
-          <button className=" morphism-3-noround rounded-sm p-1 text-stone-700 hover:translate-y-[-0.1rem] hover:bg-cyan-300 duration-300">NFTS</button>
-          
+            <button className=" morphism-bg-2 rounded-sm p-1 text-[#141E46] hover:translate-y-[-0.1rem] hover:bg-[#C70039] duration-300 font-semibold">
+              NFTS
+            </button>
           </Link>
         </div>
       </div>

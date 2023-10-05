@@ -105,17 +105,17 @@ function Search() {
   };
 
   return (
-    <div className="p-8 bg-search-bg bg-cover bg-repeat bg-fixed  w-screen h-[24rem] bg-top bg-blend-darken">
+    <div className="p-8 w-screen h-[24rem] morphism-bg-3">
       <div className="text-sm lg:text-lg p-8 flex flex-col">
         <input
           type="text"
           placeholder="Query ETH address"
-          className="w-full lg:w-2/5 border-gray-200 rounded-sm p-2 border-b-2 text-stone-700"
+          className="w-full lg:w-2/5 rounded-sm p-2 border-b-2 text-[#141E46]"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
         <button
-          className="text-stone-700 w-full lg:w-2/5 font-bold py-2 text-xs hover:cursor-pointer outline-stone-300  rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-cyan-600 duration-300 morphism-4-noround-blur"
+          className="text-[#C70039] w-full lg:w-2/5 font-bold py-2 underline text-xs hover:cursor-pointer rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-[#141E46] hover:text-[#FF6969] duration-300 morphism-bg-1"
           onClick={() => handleCopy()}
         >
           Copy mock address to clipboard
@@ -124,17 +124,17 @@ function Search() {
           <table>
             <tbody>
               <tr>
-                <th className="font-normal text-[0.75rem] sm:text-[1rem] text-left underline text-stone-100 gap-44 p-2 lg:p4">
+                <th className=" text-[0.75rem] sm:text-[1rem] text-left underline text-[#141E46] font-semibold p-4 gap-44">
                   <p className="text-lg">Address info: </p>
                 </th>
               </tr>
               <tr>
-                <td className="text-stone-100 p-2 lg:p-4">
+                <td className="text-[#141E46] font-semibold p-4">
                   Last active: {info.lastActive}
                 </td>
               </tr>
               <tr>
-                <td className="text-left text-md text-stone-100 p-2 lg:p-4">
+                <td className="text-left text-md text-[#141E46] font-semibold p-4">
                   Balance:{' '}
                   {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
                 </td>
