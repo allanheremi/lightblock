@@ -23,9 +23,13 @@ const Coin = ({ params }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const CHART_URL = `https://api.coingecko.com/api/v3/coins/${params.id.toLowerCase()}/market_chart?vs_currency=usd&days=730`;
-    const DATA_URL = `https://api.coingecko.com/api/v3/coins/${params.id.toLowerCase()}`;
+    const id =
+      params.id.charAt(0).toUpperCase() + params.id.slice(1).toLowerCase();
 
+    const CHART_URL = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=730`;
+    const DATA_URL = `https://api.coingecko.com/api/v3/coins/${id}`;
+
+    console.log(DATA_URL, CHART_URL)
     axios
       .get(CHART_URL)
       .then(response => {
@@ -101,7 +105,6 @@ const Coin = ({ params }) => {
               height={500}
               data={marketData}
               className="flex justify-start bg-[#5C5470] p-4 rounded-md"
-
             >
               <CartesianGrid vertical={false} />
               <XAxis
@@ -109,8 +112,13 @@ const Coin = ({ params }) => {
                 tickLine={false}
                 orientation="bottom"
                 axisLine={false}
-              /> 
-              <YAxis tickLine={false} orientation="left" axisLine={false} tick={{ fill: '#FAF0E6' }} />
+              />
+              <YAxis
+                tickLine={false}
+                orientation="left"
+                axisLine={false}
+                tick={{ fill: '#FAF0E6' }}
+              />
               <Tooltip content={<CustomTooltip />} />
 
               <Area type="linear" dataKey="1" stroke="#FAF0E6" fill="#352F44" />
