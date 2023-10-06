@@ -58,12 +58,7 @@ const Main = () => {
                 key={item.id}
                 className="border-b border-[#FAF0E6]  gap-2 py-2 text-center"
               >
-                <Link
-                  href={`/prices/${
-                    item.nameid.charAt(0).toUpperCase() +
-                    item.nameid.slice(1).toLowerCase()
-                  }`}
-                >
+                <Link href={`/prices/${item.nameid}`}>
                   <td className="font-medium underline text-start gap-4 flex w-full py-2 border-[#FAF0E6]  px-0.5">
                     <div className="grid grid-cols-2 w-full">
                       <div className="col-span-1 flex justify-center items-center">

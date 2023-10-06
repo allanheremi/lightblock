@@ -23,8 +23,7 @@ const Coin = ({ params }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const id =
-      params.id.charAt(0).toUpperCase() + params.id.slice(1).toLowerCase();
+    const id = params.id
 
     const CHART_URL = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=730`;
     const DATA_URL = `https://api.coingecko.com/api/v3/coins/${id}`;
