@@ -110,12 +110,12 @@ function Search() {
         <input
           type="text"
           placeholder="Query ETH address"
-          className="w-full lg:w-2/5 rounded-sm p-2 border-b-2 text-[#141E46]"
+          className="w-full lg:w-2/5 rounded-sm p-2 border-b-2 text-[#5C5470]"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
         <button
-          className="text-[#C70039] w-full lg:w-2/5 font-bold py-2 underline text-xs hover:cursor-pointer rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-[#141E46] hover:text-[#141E46] duration-300 morphism-bg-2"
+          className="text-[#352F44] w-full lg:w-2/5 py-2 underline text-xs hover:cursor-pointer rounded-sm p-2 hover:translate-y-[-0.1rem] hover:bg-[#B9B4C7] hover:text-[#352F44] duration-300 morphism-bg-4 shadow-sm font-extrabold shadow-[#B9B4C7]"
           onClick={() => handleCopy()}
         >
           Copy mock address to clipboard
@@ -124,17 +124,17 @@ function Search() {
           <table>
             <tbody>
               <tr>
-                <th className=" text-[0.75rem] sm:text-[1rem] text-left underline text-[#141E46] font-semibold p-4 gap-44">
+                <th className=" text-[0.75rem] sm:text-[1rem] text-left underline text-[#B9B4C7] font-semibold p-4 gap-44">
                   <p className="text-lg">Address info: </p>
                 </th>
               </tr>
               <tr>
-                <td className="text-[#141E46] font-semibold p-4">
+                <td className="text-[#B9B4C7] font-semibold p-4">
                   Last active: {info.lastActive}
                 </td>
               </tr>
               <tr>
-                <td className="text-left text-md text-[#141E46] font-semibold p-4">
+                <td className="text-left text-md text-[#B9B4C7] font-semibold p-4">
                   Balance:{' '}
                   {info.balance !== null ? info.balance.toFixed(5) : 'N/A'} ETH
                 </td>

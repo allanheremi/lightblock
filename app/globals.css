@@ -134,37 +134,40 @@ body {
 }
 
 .morphism-bg-1 {
-  background-color: #FFF5E0;
+  background-color: #352F44;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .morphism-bg-2 {
-  background-color: #FF6969;
+  background-color: #5C5470;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .morphism-bg-3 {
 
-    background-color: #C70039;
+    background-color: #B9B4C7;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(2px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
 
   
 }
 
 .morphism-bg-4 {
 
-  background-color: #141E46
+  background-color: #FAF0E6
   ;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
 
 
 }
 
+/* 
+352F44
+5C5470
+B9B4C7
+FAF0E6
+
+*/

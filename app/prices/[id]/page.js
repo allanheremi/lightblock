@@ -59,85 +59,85 @@ const Coin = ({ params }) => {
     if (active && payload && payload.length) {
       const timestamp = new Date(payload[0].payload[0]);
       const price = payload[0].value.toFixed(0) + '$';
-  
+
       return (
-        <div className="custom-tooltip bg-white p-2 rounded-lg">
+        <div className="custom-tooltip bg-[#FAF0E6] p-2 rounded-lg">
           <p>Date: {timestamp.toDateString()}</p>
           <p>Price: {price}</p>
         </div>
       );
     }
 
-  return null;
-};
-
+    return null;
+  };
 
   console.log(extractedData);
 
   if (loading) {
     return (
-      <div className="flex justify-center datas-center w-screen h-screen bg-black">
-        <h1 className="text-white">Loading...</h1>
+      <div className="flex justify-center items-center w-screen h-screen bg-black">
+        <h1 className="text-white text-2xl">Loading...</h1>
       </div>
     );
   }
 
-
   return (
     <>
-      <div className="w-screen h-screen px-8">
+      <div className="w-screen h-screen px-8 bg-[#B9B4C7]">
         <Link href={'/prices'}>
-          <button className="p-2 items-center bg-[#5A029E] flex justify-center rounded-md fixed bottom-5 right-5 z-10rounded-lg text-white">
+          <button className="p-2 items-center bg-[#FAF0E6] flex justify-center rounded-md fixed bottom-5 right-5 z-10rounded-lg text-[#5C5470] font-bold">
             Back
           </button>
         </Link>
 
-        <h1 className="text-center text-xl text-[#5A029E] font-bold">
+        <h1 className="text-center text-xl text-[#352F44] font-bold">
           {extractedData.name} data
         </h1>
 
         <div className="flex items-center w-full h-[50%] justify-center p-12 py-4">
           <ResponsiveContainer width={'99%'}>
             <AreaChart
-              width={300}
-              height={300}
+              width={400}
+              height={500}
               data={marketData}
-              className="flex justify-start bg-black"
+              className="flex justify-start bg-[#5C5470] p-4 rounded-md"
+
             >
-              <CartesianGrid vertical={false}/>
+              <CartesianGrid vertical={false} />
               <XAxis
-  dataKey="name"
+                dataKey="name"
                 tickLine={false}
                 orientation="bottom"
                 axisLine={false}
-              />
-              <YAxis tickLine={false} orientation="left" axisLine={false} />
-              <Tooltip content={<CustomTooltip />}/>
+              /> 
+              <YAxis tickLine={false} orientation="left" axisLine={false} tick={{ fill: '#FAF0E6' }} />
+              <Tooltip content={<CustomTooltip />} />
 
-              <Area type="linear" dataKey="1" stroke="#FFF" fill="#FFA8FF" />
+              <Area type="linear" dataKey="1" stroke="#FAF0E6" fill="#352F44" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
         <div className="px-12">
-          <div className="w-full mt-4 p-4 px-8 flex justify-between border-b-2 border-slate-300">
+          <div className="w-full mt-4 p-2 px-8 flex justify-between border-b-2 border[#FAF0E6]">
             <p>Market cap rank:</p> <p>{extractedData.marketCapRank}</p>
           </div>
-          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+          <div className="w-full  p-2 px-8 flex justify-between border-b-2 border[#FAF0E6]">
             <p> Current price: </p> <p> {extractedData.currentPrice}$</p>
           </div>
-          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+          <div className="w-full  p-2 px-8 flex justify-between border-b-2 border[#FAF0E6]">
             <p>24H high: </p> <p> {extractedData.dayHigh}$</p>
           </div>
-          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+          <div className="w-full  p-2 px-8 flex justify-between border-b-2 border[#FAF0E6]">
             <p> 24H low: </p> <p> {extractedData.dayLow}$</p>
           </div>
 
-          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
+          <div className="w-full  p-2 px-8 flex justify-between border-b-2 border[#FAF0E6]">
             <p> All time high: </p> <p>{extractedData.ath}$</p>
           </div>
-          <div className="w-full  p-4 px-8 flex justify-between border-b-2 border-slate-300">
-            <p>Volume </p> <p> {(extractedData.tradingVolume / 1000000).toFixed(0)}M$</p>
+          <div className="w-full  p-2 px-8 flex justify-between border-b-2 border[#FAF0E6] ">
+            <p>Volume </p>{' '}
+            <p> {(extractedData.tradingVolume / 1000000).toFixed(0)}M$</p>
           </div>
         </div>
       </div>

@@ -25,8 +25,8 @@ function Header() {
   }, []);
 
   return (
-    <header className="h-24 morphism-bg-4 text-[#FFF5E0]">
-      <div className="flex justify-between h-[50%] p-2 lg:px-8  w-full  ">
+    <header className="h-24 morphism-bg-2 text-[#FFF5E0]">
+      <div className="flex justify-between h-[50%] p-2 lg:px-8 items-center w-full  ">
         <div className="w-full">
           {ethPrice !== null ? (
             <div className="flex flex-row gap-4">
@@ -49,7 +49,7 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex justify-between h-[50%] p-4 lg:px-8 border-t border-opacity-30 border-[#FFF5E0] w-full ">
+      <div className="flex justify-between h-[50%] p-4 lg:px-8 py-2 items-center border-t border-opacity-30 border-[#FFF5E0] w-full ">
         <div className="flex items-center justify-start gap-1">
           <img
             src={'/Lightblockgrey.png'}
@@ -64,12 +64,12 @@ function Header() {
           {' '}
           <Link href={'/prices'}>
             {' '}
-            <button className=" morphism-bg-2 rounded-sm p-1 text-[#141E46] hover:translate-y-[-0.1rem] hover:bg-[#C70039] duration-300 font-semibold">
+            <button className=" morphism-bg-4 rounded-sm p-1 text-[#5C5470] hover:translate-y-[-0.1rem] hover:bg-[#B9B4C7] duration-300 font-semibold">
               Prices
             </button>{' '}
           </Link>
           <Link href={'/nfts'}>
-            <button className=" morphism-bg-2 rounded-sm p-1 text-[#141E46] hover:translate-y-[-0.1rem] hover:bg-[#C70039] duration-300 font-semibold">
+            <button className=" morphism-bg-4 rounded-sm p-1 text-[#5C5470] hover:translate-y-[-0.1rem] hover:bg-[#B9B4C7] duration-300 font-semibold">
               NFTS
             </button>
           </Link>
