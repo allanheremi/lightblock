@@ -3,45 +3,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 
-const mockData = [
-  {
-    id: 'btc',
-    name: 'Bitcoin',
-    image: '/searchBG.png',
-    currentPrice: 45000,
-    marketCap: 850000000000,
-    marketCapRank: 1,
-    marketCapChange: 5.2,
-  },
-  {
-    id: 'btc',
-    name: 'Bitcoin',
-    image: '/searchBG.png',
-    currentPrice: 45000,
-    marketCap: 850000000000,
-    marketCapRank: 1,
-    marketCapChange: 5.2,
-  },
-  {
-    id: 'btc',
-    name: 'Bitcoin',
-    image: '/searchBG.png',
-    currentPrice: 45000,
-    marketCap: 850000000000,
-    marketCapRank: 1,
-    marketCapChange: 5.2,
-  },
-  {
-    id: 'btc',
-    name: 'Bitcoin',
-    image: '/searchBG.png',
-    currentPrice: 45000,
-    marketCap: 850000000000,
-    marketCapRank: 1,
-    marketCapChange: 5.2,
-  },
-];
-
 const apiURL =
   'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en';
 
@@ -53,6 +14,7 @@ const Main = () => {
       axios.get(apiURL).then(response => {
         const data = response.data;
 
+        console.log(response.data)
         console.log(data);
         const extractedData = data.map(item => ({
           id: item.symbol,
@@ -62,6 +24,7 @@ const Main = () => {
           marketCap: item.market_cap,
           marketCapRank: item.market_cap_rank,
           marketCapChange: item.market_cap_change_percentage_24h,
+          nameid: item.id
         }));
         setExtractedData(extractedData);
       });
@@ -69,10 +32,6 @@ const Main = () => {
       console.error('Error: ', error);
     }
   }, []);
-
-  // useEffect(() => {
-  //   setExtractedData(mockData);
-  // }, []);
 
   return (
     <>
@@ -99,7 +58,7 @@ const Main = () => {
                 key={item.id}
                 className="border-b border-[#FAF0E6]  gap-2 py-2 text-center"
               >
-                <Link href={`/prices/${item.name}`}>
+                <Link href={`/prices/${item.id}`}>
                   <td className="font-medium underline text-start gap-4 flex w-full py-2 border-[#FAF0E6]  px-0.5">
                     <div className="grid grid-cols-2 w-full">
                       <div className="col-span-1 flex justify-center items-center">

@@ -68,11 +68,6 @@ function Header() {
               Prices
             </button>{' '}
           </Link>
-          <Link href={'/nfts'}>
-            <button className=" morphism-bg-4 rounded-sm p-1 text-[#5C5470] hover:translate-y-[-0.1rem] hover:bg-[#B9B4C7] duration-300 font-semibold">
-              NFTS
-            </button>
-          </Link>
         </div>
       </div>
     </header>
