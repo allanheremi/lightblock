@@ -1,11 +1,8 @@
 'use client';
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   CartesianGrid,
   Area,
   AreaChart,
@@ -14,8 +11,6 @@ import {
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 
 const Coin = ({ params }) => {
   const [marketData, setMarketData] = useState([]);
@@ -23,12 +18,12 @@ const Coin = ({ params }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const id = params.id
+    const id = params.id;
 
     const CHART_URL = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=730`;
     const DATA_URL = `https://api.coingecko.com/api/v3/coins/${id}`;
 
-    console.log(DATA_URL, CHART_URL)
+    console.log(DATA_URL, CHART_URL);
     axios
       .get(CHART_URL)
       .then(response => {
