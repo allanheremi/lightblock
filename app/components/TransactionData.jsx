@@ -28,41 +28,32 @@ function TransactionData() {
     block7: null,
   });
 
-  const fetchChainData = async () => {
+  const fetchFeeData = async () => {
     try {
       const data = await alchemy.core.getFeeData();
 
       setGasPrice({
-        gasPrice: data.gasPrice / 1000000000,
+        gasPrice: data.gasPrice / 1e9,
         maxFeePerGas: parseInt(data.maxFeePerGas, 16).toString().slice(0, 2),
         maxPriorityFeePerGas: parseInt(data.maxPriorityFeePerGas, 16)
           .toString()
           .slice(0, 2),
       });
     } catch (error) {
-      console.error('Could not retrieve chain data ', error);
+      console.error('Could not retrieve chain data:', error);
     }
   };
 
-  const fetchBlocks = async () => {
+  const fetchLatestBlocks = async () => {
     try {
       const latest = await alchemy.core.getBlockNumber();
-      const secondLatest = latest - 1;
-      const thirdLatest = latest - 2;
-      const fourthLatest = latest - 3;
-      const fifthLatest = latest - 4;
-      const sixthLatest = latest - 5;
-      const seventhLatest = latest - 6;
+      const blocksData = {};
 
-      setBlocks({
-        block1: latest,
-        block2: secondLatest,
-        block3: thirdLatest,
-        block4: fourthLatest,
-        block5: fifthLatest,
-        block6: sixthLatest,
-        block7: seventhLatest,
-      });
+      for (let i = 1; i <= 7; i++) {
+        blocksData[`block${i}`] = latest - i + 1;
+      }
+
+      setBlocks(blocksData);
     } catch (error) {
       console.error('Error fetching blocks:', error);
     }
@@ -70,11 +61,14 @@ function TransactionData() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchBlocks();
-      await fetchChainData();
+      await fetchFeeData();
+      await fetchLatestBlocks();
     };
+
     fetchData();
+
     const intervalId = setInterval(fetchData, 4000);
+
     return () => {
       clearInterval(intervalId);
     };
@@ -87,7 +81,9 @@ function TransactionData() {
           <div className="p-0 lg:p-8">
             <table className="flex flex-row justify-around text-center ">
               <tr>
-                <th className="flex justify-center text-[#352F44]">Last block:</th>
+                <th className="flex justify-center text-[#352F44]">
+                  Last block:
+                </th>
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
                     className="flex p-2 underline underline-offset-1"
@@ -99,7 +95,7 @@ function TransactionData() {
               </tr>
 
               <th className="text-left text-[#5C5470] ">
-                <p className='text-[#352F44]'>Details:{' '}</p>
+                <p className="text-[#352F44]">Details: </p>
                 {Object.keys(blocks).map((blockKey, index) => (
                   <td
                     className="flex p-2 underline justify-center font-medium"
