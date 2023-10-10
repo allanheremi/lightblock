@@ -1,37 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LightBlock EVM Blockchain Explorer
 
-## Getting Started
+LightBlock EVM is a basic blockchain explorer project that allows users to explore the Ethereum Virtual Machine (EVM) blockchain. It provides various features to help users track gas fees, view the latest block numbers, and monitor cryptocurrency prices. The project is built using Next.js, web3JS, Alchemy SDK and Tailwind CSS.
 
-First, run the development server:
+## Features
 
-```bash
+**1. Gas Fee Tracking:** LightBlock EVM provides a user-friendly interface for tracking gas fees on the Ethereum network. Users can easily monitor the current gas prices and trends.
+
+**2. Latest Block Numbers:** The explorer displays the latest block numbers in real-time. Users can click on the links next to block numbers to access detailed information about each block on etherscan.
+
+**3. Price Information:** The "Prices" section of the explorer offers up-to-date cryptocurrency prices, allowing users to keep tabs on the market. Prices are fetched from reliable data sources.
+
+## Technologies Used
+
+- **Next.js:** A popular React framework for building web applications.
+- **Tailwind CSS:** A utility-first CSS framework that simplifies styling and enhances the user interface.
+- **Web3 Libraries and tools:** Web3JS / Alchemy SDK for blockchain interactions
+
+## Installation
+
+1. Clone this repository to your local machine:
+git clone https://github.com/your-username/lightblock-evm.git
+
+2. Change to the project directory:
+cd lightblock-evm
+
+3. Install the project dependencies:
+npm install
+
+
+4. Start the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+5. Open your web browser and access the explorer at `http://localhost:3000`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## License
 
-## Learn More
+This project is licensed under the MIT License.
 
-To learn more about Next.js, take a look at the following resources:
+## Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Thanks to the Ethereum community and etherscan.io for providing valuable blockchain data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
+If you have any questions or need further assistance, you can reach out to me:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# lightblock
+- Allan Heremi
+- Email: allan.heremi@appliedtechnology.se
